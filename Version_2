@@ -1,0 +1,204 @@
+import math
+import statistics
+import time
+for i in range(1,100):
+    print('#' * 37)
+    print("#                                   #")
+    print("#           My Smartphone           #")
+    print("#         Python Application        #")
+    print("#                                   #")
+    print('#' * 37)
+    print("#                                   #")
+    print("#      Select an application        #")
+    print("#             to run                #")
+    print("#                                   #")
+    print('#' * 37)
+    print("#            [Options]              #")
+    print('#' * 37)
+    print("#                                   #")
+    print("#     Enter '1' for Payroll         #")
+    print("#     Enter '2' for Calculator      #")
+    print("#     Enter '3' for Flip a coin     #")
+    print("#     Enter '4' for Grocery list    #")
+    print("#     Enter '5' for statistics      #")
+    print("#     Enter '6' to exit             #")
+    print('#' * 37)
+    op = int(input("Select a number: "))
+    while op == 1: # Payroll Calculator
+        user = str(input("Welcome to the Payroll Calculator! Enter your name or press '0' to exit"))
+        if user == "0": # Break the while loop
+            print("End of Report")
+            break
+        else:
+            hours = float(input("Please enter hours worked: ", ))
+            payrate = float(input("Please enter your payrate: $", ))
+            if hours <= 40:
+                print("Employee's name: ", user)
+                print("Overtime hours: 0")
+                print("Overtime Pay: $0.00")
+                regularpay = round(hours * payrate, 2)
+                print("Gross Pay: $", regularpay)
+            elif hours > 40:
+                overtimehours = round(hours - 40.00,2)
+                print("Overtime hours: ", overtimehours)
+                print("Employee's name: ", user)
+                regularpay = round(hours * payrate,2)
+                overtimerate = round(payrate * 1.5, 2)
+                overtimepay = round(overtimehours * overtimerate)
+                grosspay = round(regularpay+overtimepay,2)
+                print("Regular Pay: $", regularpay)
+                print("Overtime Pay: $",overtimepay)
+                print("Gross Pay: $", grosspay)
+    while op == 2: # Calculator
+        num1 = float(input('Press 0 to exit\nEnter the first number: '))
+        if num1 == 0:
+        	print('Goodbye!\nExiting in 3 seconds...')
+        	time.sleep(3)
+        	break
+        num2 = float(input('Enter the second number: '))
+        operator = input('Enter the operation you wish to do!\nOptions: Multiply (*), Divide (/), Addition (+), Subtraction (-), Power (**), or square root (sq)\nEnter an operator: ')
+        def multiply(a, b):
+            return a * b
+        def divide(a, b):
+            return a / b
+        def minus(a, b):
+            return a - b
+        def sum(a, b):
+            return a + b
+        if operator == '*':
+            print(num1, "multiplied by", num2, "equals", multiply(num1, num2))
+        elif operator == '+':
+                print(num1, "plus", num2, "equals", sum(num1, num2))
+        elif operator == '-':
+            print(num1, "minus", num2, "equals", minus(num1, num2))
+        elif operator == '/':
+                print(num1, "divided by", num2, "equals", divide(num1, num2))
+        elif operator == '**':
+                print(num1, "to the power of", num2, "equals", math.pow(num1, num2))
+        elif operator == 'sq':
+                print(num1, "square rooted is", sqrt(a))
+        else:
+            print("Invalid input! ")
+    while op == 3: # Flip a Coin
+                import random
+                var = int(input("How many times would you like to flip the coin? "))
+                var2 = random.random() * var
+                if var2 < 0.5:
+                        print('Heads! ')
+                        break
+                elif var2 > 0.5:
+                        print('Tails! ')
+                        break
+    while op == 4: # Shopping Lis
+            shopList = []
+            maxLength = 50
+            for i in range(1, 100):
+                print('#' * 31)
+                print('#                             #')
+                print('#   Welcome to my Grocery     #')
+                print('#                             #')
+                print('#_____________________________#')
+                print('# Please enter in what action #')
+                print('#       you wish to do        #')
+                print('#_____________________________#')
+                print('#                             #')
+                print('#          [Options]          #')
+                print('#   Enter "1" to add an item  #')
+                print('# Enter "2" to remove an item #')
+                print('# Enter "3" to clear the list #')
+                print('# Enter "4" to exit this menu #')
+                print('# Enter "5" to list your list #')
+                print('#                             #')
+                print('#' * 31)
+                Enter1 = int(input('Select a number 1-5: ')) # Enter1 will allow us to ask for input from the user for a response in the menu given to them.
+                if Enter1 == 1:
+                    var2 = str(input('What item would you like to add to the list? '))
+                    if len(shopList) > maxLength:
+                        break
+                    shopList.append(var2)
+                    var5 = str(input("Would you like to add another item to the list? Respond with 'y' for yes, and 'n' for no: "))
+                    while var5 == 'y':
+                        print("Your current shopping list is", shopList, '\n#################################')
+                        var6 = str(input("Press 'E' to exit this menu\nWhat else would you like to add to your list? "))
+                        if var6 == 'E':
+                        	print('Goodbye!\n')
+                        	break
+                        else:
+                            print("Your current shopping list is: ", shopList)
+                            shopList.append(var6)
+                    if var5 == 'n':
+                        break
+                        print("Your current shopping list is", shopList)
+                elif Enter1 == 2:
+                    var3 = str(input('What item would you like to remove from the list? '))
+                    shopList.remove(var3)
+                    print("Your current shopping list is: ", shopList)
+                elif Enter1 == 3:
+                    var4 = print("Clearing list...")
+                    shopList[:] = []
+                elif Enter1 == 4:
+                    print("Goodbye! \n")
+                    break 
+                elif Enter1 == 5:
+                    for word in shopList:
+                        print('Your current list is:\n', word)
+                else:
+                    print("Invalid input!")
+    while op == 5: # Statistics calculator
+                print('#' * 43) 
+                print('#  Welcome to the statistics calculator!  #')
+                print('#' * 43) 
+                print('#       Your current options are:         #')
+                print('#' * 43) 
+                print("#     Enter '1' to modify a data set      #")
+                print("#     Enter '2' to print a data set       #")
+                print("#     Enter '3' to exit this menu         #")
+                print('#' * 43) 
+                data = []
+                leo = int(input('Select a number: '))
+                if leo == 1: # Modify data set
+                    print('#' * 43) 
+                    print("#    Enter '1' to add to your data set!   #")
+                    print("#    Enter '2' to remove from your set!   #")
+                    print("#    Enter '3' to clear your set!         #")
+                    print("#    Enter '4' to print statistics!       #")
+                    print("#    Enter '5' to exit this menu!         #")
+                    print('#' * 43) 
+                    modify = int(input('Select a number: '))
+                    while modify == 1:
+                        add = int(input('Press 0 to exit!\nEnter a number to add to your data set: '))
+                        if add == 0:
+                        	print('Goodbye!\n')
+                        	break
+                        else:
+                        	data.insert(-1, add)
+                        	print(f'Added {add} to your data set!')
+                    while modify == 2: # Remove from your data set
+                        remove = int(input('Press 0 to exit\nEnter the numbers you want to remove: '))
+                        if remove == 0:
+                        	break
+                        else:
+                        	data.remove(remove)
+                        	print(f'Removed {remove} from the data set!')
+                    if modify == 3:
+                        print('Clearing your data set... ')
+                        data[:] = []
+                        print('Your data set has been cleared!')
+                    elif modify == 4:
+                    	def avg(a):
+                    		return sum(a) / len(a)
+                    	print('The mean of your data set is:', avg(data))
+                    elif modify == 5:
+                        print('Goodbye\n')
+                        break
+                elif leo == 2:
+                	if len(data) < 1:
+                		print('Your list is empty!\nAdd some numbers!')
+                	else:
+                		print(data)
+                else:
+                    print('Invalid input! \n')
+    while op == 6:
+        print('Goodbye\nClosing in 3 seconds!\n')
+        time.sleep(3)
+        break
